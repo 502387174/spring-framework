@@ -464,9 +464,9 @@ public class XmlBeanDefinitionReader extends AbstractBeanDefinitionReader {
 		if (validationModeToUse != VALIDATION_AUTO) {
 			return validationModeToUse;
 		}
-		//其次，自动获取验证模式
+		//其次，自动获取验证模式(自动判断模式，为xsd模式或者dto模式)
 		int detectedMode = detectValidationMode(resource);
-		//不等于自动检验
+		//不等于自动检验，报错时返回自动校验
 		if (detectedMode != VALIDATION_AUTO) {
 			return detectedMode;
 		}
